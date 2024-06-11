@@ -24,3 +24,6 @@ We are following a feature first approach, it contains domain, infrastructure an
 ._(); this means the constructor is private, this constructor can only be accessed within the same file (library) and not from other files.
 By making the constructor private, you restrict the instantiation of the class from outside the file it is defined in.
 This is useful when you want to control the creation of objects of the class and enforce certain constraints or patterns, such as singleton or factory patterns.
+
+after this one we are going to do this one:
+https://hackernoon.com/the-ultimate-guide-to-flutter-bloc-state-management-and-testing

@@ -2,6 +2,7 @@ import 'package:crudapiapp/core/internet_services/path.dart';
 import 'package:dio/dio.dart';
 
 /// Create a singleton class to contain all Dio methods and helper functions
+/// Created a singleton class For DioClient which will ensure that only one instance of the class can exist throughout the application and provides a global point of access to that instance.
 class DioClient {
   ///._(); this means the constructor is private
   DioClient._();
