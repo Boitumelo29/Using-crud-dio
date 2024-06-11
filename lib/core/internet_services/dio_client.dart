@@ -32,7 +32,7 @@ class DioClient {
       if (response.statusCode == 200) {
         return response.data;
       }
-      throw "Something went wrong";
+      throw "Something went wrong trying to get";
     } catch (e) {
       print(e);
       rethrow;
@@ -56,7 +56,17 @@ class DioClient {
           cancelToken: cancelToken,
           onSendProgress: onSendProgress,
           onReceiveProgress: onReceiveProgress);
-    } catch (e) {}
-    throw "";
+
+
+      //201 = created
+      if (response.statusCode == 200 || response.statusCode == 201) {
+        return response.data;
+      }
+      throw "Something went wrong trying to post";
+    } catch (e) {
+      print(e);
+      rethrow;
+    }
+    throw "Something went wrong trying to post";
   }
 }
