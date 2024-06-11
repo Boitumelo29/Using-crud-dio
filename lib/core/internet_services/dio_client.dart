@@ -22,8 +22,19 @@ Future<Map<String, dynamic>> get(String path,
     Options? options,
     CancelToken? cancelToken,
     ProgressCallback? onReceiveProgress}) async {
-  try {} catch (e) {
+  try {
+    final Response response = await _dio.get(path,
+        queryQarameters: queryQarameters,
+        options: options,
+        cancelToken: cancelToken,
+        onReceiveProgress: onReceiveProgress);
+
+    if (response.statusCode == 200) {
+      return response.data;
+    }
+    throw "Something went wrong";
+  } catch (e) {
     print(e);
+    rethrow;
   }
-  throw "";
 }
