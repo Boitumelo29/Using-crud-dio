@@ -3,6 +3,7 @@ import 'package:dio/dio.dart';
 
 /// Create a singleton class to contain all Dio methods and helper functions
 class DioClient {
+  ///._(); this means the constructor is private
   DioClient._();
 
   static final instance = DioClient._();
@@ -14,27 +15,35 @@ class DioClient {
         receiveTimeout: const Duration(seconds: 60),
         responseType: ResponseType.json),
   );
-}
 
-///The Get Method
-Future<Map<String, dynamic>> get(String path,
-    {Map<String, dynamic>? queryQarameters,
-    Options? options,
-    CancelToken? cancelToken,
-    ProgressCallback? onReceiveProgress}) async {
-  try {
-    final Response response = await _dio.get(path,
-        queryQarameters: queryQarameters,
-        options: options,
-        cancelToken: cancelToken,
-        onReceiveProgress: onReceiveProgress);
+  ///The Get Method
+  Future<Map<String, dynamic>> get(String path,
+      {Map<String, dynamic>? queryParameters,
+      Options? options,
+      CancelToken? cancelToken,
+      ProgressCallback? onReceiveProgress}) async {
+    try {
+      final Response response = await _dio.get(path,
+          queryParameters: queryParameters,
+          options: options,
+          cancelToken: cancelToken,
+          onReceiveProgress: onReceiveProgress);
 
-    if (response.statusCode == 200) {
-      return response.data;
+      if (response.statusCode == 200) {
+        return response.data;
+      }
+      throw "Something went wrong";
+    } catch (e) {
+      print(e);
+      rethrow;
     }
-    throw "Something went wrong";
-  } catch (e) {
-    print(e);
-    rethrow;
+  }
+
+  ///Post Method
+
+  Future<Map<String, dynamic>> post(String path{
+    data, Map<String, dynamic>? queryParameters, Options? options, CancelToken? cancelToken,  ProgressCallback? onSendProgress,  ProgressCallback?
+  }) async {
+    throw "";
   }
 }
