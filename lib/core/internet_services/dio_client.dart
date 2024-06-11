@@ -56,8 +56,6 @@ class DioClient {
           cancelToken: cancelToken,
           onSendProgress: onSendProgress,
           onReceiveProgress: onReceiveProgress);
-
-
       //201 = created
       if (response.statusCode == 200 || response.statusCode == 201) {
         return response.data;
@@ -67,6 +65,30 @@ class DioClient {
       print(e);
       rethrow;
     }
-    throw "Something went wrong trying to post";
+  }
+
+  Future<Map<String, dynamic>> put(String path,
+      {data,
+      Map<String, dynamic>? queryParameters,
+      Options? options,
+      CancelToken? cancelToken,
+      ProgressCallback? onSendProgress,
+      ProgressCallback? onReceiveProgress}) async {
+    try {
+      final Response response = await _dio.put(path,
+          data: data,
+          options: options,
+          cancelToken: cancelToken,
+          onReceiveProgress: onReceiveProgress,
+          onSendProgress: onSendProgress);
+
+      if (response.statusCode == 200) {
+        return response.data;
+      }
+      throw "Something went wrong with the post";
+    } catch (e) {
+      print(e);
+      rethrow;
+    }
   }
 }
