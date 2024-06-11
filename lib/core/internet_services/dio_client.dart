@@ -67,6 +67,7 @@ class DioClient {
     }
   }
 
+  ///Put Method
   Future<Map<String, dynamic>> put(String path,
       {data,
       Map<String, dynamic>? queryParameters,
@@ -90,5 +91,25 @@ class DioClient {
       print(e);
       rethrow;
     }
+  }
+
+  ///Delete Method
+  Future<Map<String, dynamic>> delete(String path,
+      {data,
+      Map<String, dynamic>? queryParameters,
+      Options? options,
+      CancelToken? cancelToken,
+      ProgressCallback? onSendProgress,
+      ProgressCallback? onReceiveProgress}) async {
+    final Response response = await _dio.delete(path,
+        data: data,
+        options: options,
+        cancelToken: cancelToken,
+        queryParameters: queryParameters);
+
+    if (response.statusCode == 200) {
+      return response.data;
+    }
+    throw "";
   }
 }
