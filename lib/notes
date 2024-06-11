@@ -1,0 +1,21 @@
+We will be optimizing crud operations and also implement http request with dio
+Link to tutorial: https://hackernoon.com/optimizing-crud-operations-in-flutter-how-to-implement-http-requests-with-dio
+
+
+we will be
+-implemtning http request
+-using clean clean architecture
+-and using dio
+
+
+
+Clean Architecture is a software design philosophy that can help you build more modular, maintainable, and testable Flutter apps.
+It does this by separating the code into layers, with each layer having a specific responsibility.
+
+
+Dio is a HTTP client library that simplifies the process of making HTTP request and changeling responses in dart
+Benefits include:
+-simplified HTTP request handling
+-efficient caching
+
+
