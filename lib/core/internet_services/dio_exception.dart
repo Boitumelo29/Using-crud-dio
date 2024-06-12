@@ -32,14 +32,19 @@ class CustomDioException implements Exception {
 
   String _handleStatusCode(int? statusCode) {
     switch (statusCode) {
+      //400 Bad Request
       case 400:
         return 'User already exist';
+      //401 Unauthorized
       case 401:
         return "Authentication failed";
+      //403 Forbidden
       case 403:
         return "The authenticated user is not allowed to access the specif API";
+      //404 Not Found
       case 404:
         return "The requested resources does not exist";
+      //500 Internal Server Error
       case 500:
         return "Internal server error";
       default:
