@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
 
+//we have created a error-handling class
 class CustomDioException implements Exception {
   late String errorMessage;
 
