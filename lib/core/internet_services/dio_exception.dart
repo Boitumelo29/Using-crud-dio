@@ -38,7 +38,15 @@ class CustomDioException implements Exception {
         return "Authentication failed";
       case 403:
         return "The authenticated user is not allowed to access the specif API";
+      case 404:
+        return "The requested resources does not exist";
+      case 500:
+        return "Internal server error";
+      default:
+        return "Oops something went wrong";
     }
-    return "";
   }
+
+  @override
+  String toString() => errorMessage;
 }
