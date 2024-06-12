@@ -27,3 +27,5 @@ This is useful when you want to control the creation of objects of the class and
 
 after this one we are going to do this one:
 https://hackernoon.com/the-ultimate-guide-to-flutter-bloc-state-management-and-testing
+
+“Implements” is a keyword used to indicate that a class is implementing an interface.
