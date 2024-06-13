@@ -15,7 +15,7 @@ class User {
     avatar = json['avatar'];
   }
 
-  // User.toJson(Map<String, dynamic>json){
-  //   final
-  // }
+  User.toJson(Map<String, dynamic>json){
+    final
+  }
 }
