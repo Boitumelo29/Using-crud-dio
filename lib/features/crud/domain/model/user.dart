@@ -15,7 +15,13 @@ class User {
     avatar = json['avatar'];
   }
 
-  User.toJson(Map<String, dynamic>json){
-    final
+  Map<String, dynamic> json() {
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['id'] = id;
+    data['email'] = email;
+    data['first_name'] = firstName;
+    data['last_name'] = lastName;
+    data['avatar'] = avatar;
+    return data;
   }
 }
