@@ -1,3 +1,4 @@
+//New User Model for creating, updating, and deleting a new user
 class NewUser {
   String? name;
   String? job;
