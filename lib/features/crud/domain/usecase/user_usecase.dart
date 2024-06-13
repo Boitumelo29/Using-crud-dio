@@ -7,11 +7,8 @@ import 'package:crudapiapp/features/crud/domain/repository/user_repo.dart';
 
 abstract class UserUsecase {
   Future<List<User>> getAllUsers();
-
   Future<NewUser> createNewUser(String name, String job);
-
   Future<NewUser> updateUserInfo(String id, String name, String job);
-
   Future<void> deleteUserInfo(String id);
 }
 
