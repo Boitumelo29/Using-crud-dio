@@ -15,3 +15,7 @@ final newUserProvider = Provider<UserRepository>((ref) {
 final updateUserProvider = Provider<UserRepository>((ref) {
   return UserRepoImpl();
 });
+
+final deleteUserProvider = Provider<UserRepository>((ref) {
+  return UserRepoImpl();
+});
