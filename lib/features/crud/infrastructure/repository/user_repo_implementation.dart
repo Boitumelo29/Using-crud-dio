@@ -2,6 +2,7 @@ import 'package:crudapiapp/core/internet_services/dio_client.dart';
 import 'package:crudapiapp/core/internet_services/dio_exception.dart';
 import 'package:crudapiapp/core/internet_services/path.dart';
 import 'package:crudapiapp/features/crud/domain/model/new_user.dart';
+import 'package:crudapiapp/features/crud/domain/model/user.dart';
 import 'package:crudapiapp/features/crud/domain/repository/user_repo.dart';
 import 'package:dio/dio.dart';
 
@@ -17,8 +18,34 @@ class UserRepoImpl implements UserRepository {
       throw error.errorMessage;
     }
   }
-}
 
-// try{}catch(e){
+  @override
+  Future<void> deleteUser(String id) async {
+    try {
+      await DioClient.instance.delete('$users/$id');
+    } on DioException catch (e) {
+      var error = CustomDioException.fromDioException(e);
+      throw error.errorMessage;
+    }
+  }
+
+  @override
+  Future<List<User>> getUserList() async {
+    try {
+      final response = await DioClient.instance.get(users);
+      final userList =
+          (response['data'] as List).map((e) => User.fromJson(e)).toList();
+      return userList;
+    } on DioException catch (e) {
+      var error = CustomDioException.fromDioException(e);
+      throw error.errorMessage;
+    }
+  }
+
+  @override
+  Future<NewUser> updateUser(String id, String name, String job) {
+    // try{}catch(e){
 //       print(e);
 //     }
+  up}
+}
