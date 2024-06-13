@@ -6,6 +6,7 @@ import 'package:crudapiapp/features/crud/domain/model/user.dart';
 import 'package:crudapiapp/features/crud/domain/repository/user_repo.dart';
 import 'package:dio/dio.dart';
 
+//We implemented the methods in the abstract class user repository using the GET, POST, UPDATE, and DELETE methods previously defined in the dio client class.
 class UserRepoImpl implements UserRepository {
   @override
   Future<NewUser> addNewUser(String name, String job) async {
@@ -43,9 +44,14 @@ class UserRepoImpl implements UserRepository {
   }
 
   @override
-  Future<NewUser> updateUser(String id, String name, String job) {
-    // try{}catch(e){
-//       print(e);
-//     }
-  up}
+  Future<NewUser> updateUser(String id, String name, String job) async {
+    try {
+      final response = await DioClient.instance
+          .put("$users/$id", data: {'id': id, 'name': name, 'job': job});
+      return NewUser.fromJson(response);
+    } on DioException catch (e) {
+      var error = CustomDioException.fromDioException(e);
+      throw error.errorMessage;
+    }
+  }
 }
