@@ -8,7 +8,7 @@ import 'package:crudapiapp/features/crud/domain/repository/user_repo.dart';
 
 //We created an abstract class for the user usecase containing all the different methods we will implement.
 // We also named it differently from those in the user repository to prevent any issues.
-abstract class UserUsecase {
+abstract class UserUseCase {
   Future<List<User>> getAllUsers();
   Future<NewUser> createNewUser(String name, String job);
   Future<NewUser> updateUserInfo(String id, String name, String job);
@@ -17,7 +17,7 @@ abstract class UserUsecase {
 
 
 //we returned the functions from the user repository,
-class UserUseCaseImp extends UserUsecase {
+class UserUseCaseImp extends UserUseCase {
   final UserRepository userRepository;
 
   UserUseCaseImp(this.userRepository);
