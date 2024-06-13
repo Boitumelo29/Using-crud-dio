@@ -3,6 +3,8 @@ import 'package:crudapiapp/features/crud/infrastructure/repository/provider.dart
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+
+//using the ChangeNotifierProvider, we can access the UserListProvider class and use it to feed the UI.
 class UserListProvider extends ChangeNotifier {
   late final ChangeNotifierProviderRef ref;
 
@@ -10,7 +12,7 @@ class UserListProvider extends ChangeNotifier {
   bool haveData = false;
 
   UserListProvider({required this.ref});
-
+//init loads the list of users using the use case provider
   Future<void> init() async {
     list = await ref.watch(userListProvider).getUserList();
     haveData = true;
