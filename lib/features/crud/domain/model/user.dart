@@ -1,3 +1,4 @@
+//We will create a User Model for getting a list of users
 class User {
   int? id;
   String? email;
