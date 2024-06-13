@@ -5,6 +5,9 @@ import 'package:crudapiapp/features/crud/domain/repository/user_repo.dart';
 //this class will have details of external dependencies, such as data sources or APIs.
 // provide a clean interface for interacting with these dependencies, allowing the use case to remain agnostic of the specific implementation details.
 
+
+//We created an abstract class for the user usecase containing all the different methods we will implement.
+// We also named it differently from those in the user repository to prevent any issues.
 abstract class UserUsecase {
   Future<List<User>> getAllUsers();
   Future<NewUser> createNewUser(String name, String job);
@@ -12,6 +15,8 @@ abstract class UserUsecase {
   Future<void> deleteUserInfo(String id);
 }
 
+
+//we returned the functions from the user repository,
 class UserUseCaseImp extends UserUsecase {
   final UserRepository userRepository;
 
