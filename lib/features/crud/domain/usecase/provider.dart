@@ -6,7 +6,6 @@ final usersListProvider = Provider<UserUseCase>((ref) {
   return UserUseCaseImp(ref.read(userListProvider));
 });
 
-
 final createUserProvider = Provider<UserUseCase>((ref) {
   return UserUseCaseImp(ref.read(newUserProvider));
 });
@@ -17,4 +16,4 @@ final updateUserData = Provider<UserUseCase>((ref) {
 
 final deleteUserDataProvider = Provider<UserUseCase>((ref) {
   return UserUseCaseImp(ref.read(deleteUserProvider));
-})
+});
